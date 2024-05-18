@@ -10,6 +10,8 @@ import {
 // Routes
 import postRoutes from "./routes/postRoutes";
 import userRoutes from "./routes/userRoutes";
+import commentRoutes from "./routes/commentRoutes";
+
 dotenv.config();
 connectDB();
 const app = express();
@@ -20,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
 
 app.use(invalidPathHandler);
 app.use(errorResponserHandler);
